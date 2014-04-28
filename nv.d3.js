@@ -8018,6 +8018,7 @@ nv.models.multiBarChart = function() {
         return '<h3>' + key + '</h3>' +
                '<p>' +  y + ' on ' + x + '</p>'
       }
+    , tooltipdistance = -370
     , x //can be accessed via chart.xScale()
     , y //can be accessed via chart.yScale()
     , state = { stacked: false }
@@ -8058,7 +8059,7 @@ nv.models.multiBarChart = function() {
         y = yAxis.tickFormat()(multibar.y()(e.point, e.pointIndex)),
         content = tooltip(e.series.key, x, y, e, chart);
 
-    nv.tooltip.show([left, top], content, e.value < 0 ? 'n' : 's', null, offsetElement);
+    nv.tooltip.show([left, top], content, e.value < 0 ? 'n' : 's', tooltipdistance, offsetElement);
   };
 
   //============================================================
